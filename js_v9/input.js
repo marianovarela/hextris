@@ -161,7 +161,7 @@ function handleClickTap(x,y) {
         [-halfRadius,triHeight],
         [halfRadius,triHeight]];
     Vertexes = Vertexes.map(function(coord){ 
-        return [coord[0] + trueCanvas.width/2, coord[1] + trueCanvas.height/2]});
+        return [coord[0] + trueCanvas.width/2, coord[1] + trueCanvas.height/2];});
     if (gameState == 1 && inside([x,y],Vertexes)){
         toggleRush();
         return;
