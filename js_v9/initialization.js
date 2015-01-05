@@ -112,7 +112,13 @@ function initialize(a) {
             comboTime: 240
         };
 
-        $("#inst_main_body").html("The goal of Hextris is to stop blocks from leaving the inside of the outer gray hexagon<br><br>" + (settings.platform != 'mobile' ? 'Press the right and left arrow keys' : 'tap the left and right sides of the screen') + "  to rotate the Hexagon<br><br>Clear blocks and get points by making 3 or more blocks of the same color touch<br><br>Time left before your combo streak disappears is indicated shown by <span style='color:#f1c40f;'>the</span> <span style='color:#e74c3c'>colored</span> <span style='color:#3498db'>lines</span> <span style='color:#2ecc71'>in</span> the outer hexagon<br><br> " + (settings.platform == 'mobile' ? 'Toggle speeding up the game by tapping the inner hexagon' : "Speed up the game 2x by holding the down arrow"));
+        $("#inst_main_body").html("El objetivo de Hextris es parar los bloques en el interior del hexagono gris<br><br>" 
+    						+ (settings.platform != 'mobile' ? 'Pulse las teclas flecha izquierda o derecha' : 'tap the left and right sides of the screen') + "  para girar el hexagono<br><br>"
+    						+ "Se borran los bloques y se obtienen puntos al conseguir que 3(tres) o mas bloques del mismo color sean contiguos<br><br>"
+    						+ "El tiempo restante antes del combo desaparece y es indicado por <span style='color:#f1c40f;'>las</span> <span style='color:#e74c3c'>lineas de </span> <span style='color:#3498db'>colores</span> <span style='color:#2ecc71'>en</span> el exterior del hexagono<br><br>"
+    						+ (settings.platform == 'mobile' ? 'Toggle speeding up the game by tapping the inner hexagon' : "Acelerar el juego 2x presionando la flecha hacia abajo")
+    						+ "<br><br> Presione &uarr;(flecha arriba) para pausar y reanudar el juego"
+    						+ "<br><br> Presione enter para reiniciar el juego");
     }
     if(/Android/i.test(navigator.userAgent)) {
         settings.os = "android";

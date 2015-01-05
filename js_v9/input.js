@@ -53,9 +53,13 @@ function addKeyListeners() {
     keypress.register_combo({
         keys: "space",
         on_keydown: function(){
-        	//pause();
         	$("#helpScreen").css("display","block");
-        	console.log("lalalala");
+        	$.post("http://localhost:8080/api/v1/category", {name: "ladddla"}, function (data, status){
+        		console.log("hizo el post");
+        	});
+        	$.get("http://localhost:8080/api/v1/category",function (data, status){
+        		console.log(data);
+        	});
         }
     });
     
