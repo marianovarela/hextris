@@ -1,3 +1,9 @@
+function Strings () {
+	this.ipScores = 'http://54.183.184.126/';   
+}
+
+var $HEX = new Strings();
+
 function scaleCanvas() {
     canvas.width = $(window).width();
     canvas.height = $(window).height();
@@ -312,7 +318,7 @@ function isInfringing(hex) {
 function checkGameOver() {
     for (var i = 0; i < MainHex.sides; i++) {
         if (isInfringing(MainHex)) {
-            $.get('http://54.183.184.126/' + String(score))
+            $.get($HEX.ipScores + String(score));
             if (highscores.indexOf(score) == -1) {
                 highscores.push(score);
             }
@@ -325,7 +331,13 @@ function checkGameOver() {
 }
 
 function showHelp() {
-    $("#inst_main_body").html("El objetivo de Hextris es parar los bloques en el interior del hexagono gris<br><br>" + (settings.platform != 'mobile' ? 'Pulse las teclas flecha izquierda o derecha' : 'tap the left and right sides of the screen') + "  para girar el hexagono<br><br>Se borran los bloques y se obtienen puntos al conseguir que 3(tres) o mas bloques del mismo color sean contiguos<br><br>El tiempo restante antes del combo desaparece y es indicado por <span style='color:#f1c40f;'>las</span> <span style='color:#e74c3c'>lineas de </span> <span style='color:#3498db'>colores</span> <span style='color:#2ecc71'>en</span> el exterior del hexagono<br><br> " + (settings.platform == 'mobile' ? 'Toggle speeding up the game by tapping the inner hexagon' : "Acelerar el juego 2x presionando la flecha hacia abajo"));
+    $("#inst_main_body").html("El objetivo de Hextris es parar los bloques en el interior del hexagono gris<br><br>" 
+    						+ (settings.platform != 'mobile' ? 'Pulse las teclas flecha izquierda o derecha' : 'tap the left and right sides of the screen') + "  para girar el hexagono<br><br>"
+    						+ "Se borran los bloques y se obtienen puntos al conseguir que 3(tres) o mas bloques del mismo color sean contiguos<br><br>"
+    						+ "El tiempo restante antes del combo desaparece y es indicado por <span style='color:#f1c40f;'>las</span> <span style='color:#e74c3c'>lineas de </span> <span style='color:#3498db'>colores</span> <span style='color:#2ecc71'>en</span> el exterior del hexagono<br><br>"
+    						+ (settings.platform == 'mobile' ? 'Toggle speeding up the game by tapping the inner hexagon' : "Acelerar el juego 2x presionando la flecha hacia abajo")
+    						+ "<br><br> Presione p para pausar el juego"
+    						+ "<br><br> Presione enter para reiniciar el juego");
     if (gameState == 1) {
         pause();
     }

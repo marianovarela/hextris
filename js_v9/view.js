@@ -112,7 +112,9 @@ function showText(text) {
     if (text == 'gameover') {
         var allZ = 1;
         var i;
-
+    	if((highscores[2] != null && score >= highscores[2]) || highscores[2] == null){
+    		messages['gameover'] += "<br><div style='font-size:30px;' class='centeredHeader unselectable'> Felicitaciones, entraste en el Top 3!!!</div>";
+    	}
         for (i = 0; i < 3; i++) {
             if (highscores.length > i) {
                 messages['gameover'] += "<tr> <th class='tg-031e'>" + (i + 1) + ".</th> <th class='tg-031e'>" + highscores[i] + " pts</th> </tr>";
@@ -141,7 +143,7 @@ function showText(text) {
     if (text == 'gameover') {
         if (settings.platform == 'mobile') {
             $('.tg').css('margin-top', '6px');
-            $("#tapToRestart").css('margin-top','-19px')
+            $("#tapToRestart").css('margin-top','-19px');
         }
     }
 }
@@ -163,7 +165,7 @@ function setMainMenu() {
 function hideText() {
     $(".overlay").fadeOut("1000", function() {
         $(".overlay").html("");
-    })
+    });
 }
 
 function gameOverDisplay() {
@@ -196,7 +198,7 @@ function pause(o) {
         hidebottombar();
         setTimeout(function() {
             gameState = prevGameState;
-        }, 200)
+        }, 200);
     } else if (gameState != -2 && gameState !== 0 && gameState !== 2) {
         $('#restartBtn').fadeIn(150, "linear");
         $('.helpText').fadeIn(200, 'linear');
