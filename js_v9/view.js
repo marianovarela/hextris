@@ -44,12 +44,12 @@ function drawScoreboard() {
     if (gameState === 0) {
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 170 * settings.scale, 150, "#2c3e50", "Hextris");
-        renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", 'Play!');
+        renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", 'Jugar!');
     } else if (gameState != 0 && textOpacity > 0) {
         textOpacity -= 0.05;
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy, 60, "rgb(236, 240, 241)", String.fromCharCode("0xf04b"), 'px FontAwesome');
         renderText(trueCanvas.width / 2 + gdx + 6 * settings.scale, trueCanvas.height / 2 + gdy - 170 * settings.scale, 150, "#2c3e50", "Hextris");
-        renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", 'Play!');
+        renderText(trueCanvas.width / 2 + gdx + 5 * settings.scale, trueCanvas.height / 2 + gdy + 100 * settings.scale, 20, "rgb(44,62,80)", 'Jugar!');
         ctx.globalAlpha = scoreOpacity;
         renderText(trueCanvas.width / 2 + gdx, trueCanvas.height / 2 + gdy, scoreSize, color, score);
     } else {
@@ -97,10 +97,10 @@ function toggleClass(element, active) {
 
 function showText(text) {
     var messages = {
-        'paused': "<div class='centeredHeader unselectable'>Paused</div><br><div class='unselectable centeredSubHeader'>Press p to resume</div><div style='height:100px;line-height:100px;cursor:pointer;'></div>",
-        'pausedAndroid': "<div class='centeredHeader unselectable'>Paused</div><br><div class='unselectable centeredSubHeader'>Press <i class='fa fa-play'></i> to resume</div><div style='height:100px;line-height:100px;cursor:pointer;'></div><div class='unselectable centeredSubHeader' style='margin-top:-50px;'><a href = 'market://details?id=com.hextris.hextrisadfree' target='_blank'>Don't like ads? Want to support the developer? Tap for the ad-free version.</a></div>",
-        'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>Press enter to start</div>",
-        'gameover': "<div class='centeredHeader unselectable'> Game Over: " + score + " pts</div><br><div style='font-size:24px;' class='centeredHeader unselectable'> High Scores:</div><table class='tg' style='margin:0px auto'> "
+        'paused': "<div class='centeredHeader unselectable'>Pausa</div><br><div class='unselectable centeredSubHeader'>Pulse p para reanudar</div><div style='height:100px;line-height:100px;cursor:pointer;'></div>",
+        'pausedAndroid': "<div class='centeredHeader unselectable'>Pausa</div><br><div class='unselectable centeredSubHeader'>Press <i class='fa fa-play'></i> to resume</div><div style='height:100px;line-height:100px;cursor:pointer;'></div><div class='unselectable centeredSubHeader' style='margin-top:-50px;'><a href = 'market://details?id=com.hextris.hextrisadfree' target='_blank'>Don't like ads? Want to support the developer? Tap for the ad-free version.</a></div>",
+        'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>Presionar enter para reiniciar!</div>",
+        'gameover': "<div class='centeredHeader unselectable'> Juego terminado: " + score + " pts</div><br><div style='font-size:24px;' class='centeredHeader unselectable'> Puntajes altos:</div><table class='tg' style='margin:0px auto'> "
     };
 
     if (text == 'paused') {
@@ -123,7 +123,7 @@ function showText(text) {
         if (settings.platform == 'mobile') {
             restartText = 'Tap anywhere to restart!';
         } else {
-            restartText = 'Press enter to restart!';
+            restartText = 'Presionar enter para reiniciar!';
         }
 
         messages['gameover'] += "</table><br><div class='unselectable centeredSubHeader' id = 'tapToRestart'>" + restartText + "</div>";
