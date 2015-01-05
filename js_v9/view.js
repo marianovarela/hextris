@@ -123,7 +123,7 @@ function showText(text) {
         if (settings.platform == 'mobile') {
             restartText = 'Tap anywhere to restart!';
         } else {
-            restartText = 'Press enter (or click anywhere!) to restart!';
+            restartText = 'Press enter to restart!';
         }
 
         messages['gameover'] += "</table><br><div class='unselectable centeredSubHeader' id = 'tapToRestart'>" + restartText + "</div>";
@@ -135,7 +135,6 @@ function showText(text) {
             }
         }
     }
-    messages['gameover'] += "<div class='fltrt' id='tweetStuff'><a class='tweet' href='https://twitter.com/intent/tweet?text=Can you beat my score of "+ score +" points at&button_hashtag=hextris ? http://hextris.github.io/hextris @hextris' data-lang='en' data-related='hextris:hextris' target='_blank'>Share Your Score on Twitter!!!</a></div>"
     $(".overlay").html(messages[text]);
     $(".overlay").fadeIn("1000", "swing");
 
