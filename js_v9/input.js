@@ -52,6 +52,15 @@ function addKeyListeners() {
 
     keypress.register_combo({
         keys: "space",
+        on_keydown: function(){
+        	//pause();
+        	$("#helpScreen").css("display","block");
+        	console.log("lalalala");
+        }
+    });
+    
+    keypress.register_combo({
+        keys: "up",
         on_keydown: function(){pause();}
     });
 
