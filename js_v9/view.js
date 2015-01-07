@@ -115,13 +115,7 @@ function showText(text) {
         var scores;
         $.get("http://localhost:8083/api/v1/score?sort=score,desc",function (data){
     		scores = data._embedded.score;
-    		console.log(scores[2]);
-    		console.log(score);
-    		console.log(scores[2].score);
-    		console.log(score >= scores[2].score);
 	    	if((scores[2] != null && score >= scores[2].score) || scores[2] == null){
-	    		console.log("entra aca");
-	    		// messages['gameover'] += "<br><div style='font-size:30px;' class='centeredHeader unselectable'> Felicitaciones, entraste en el Top 3!!!</div>";
             	messages['gameover'] = "<div class='centeredHeader unselectable'> Juego terminado: " + score + " pts</div><br><div style='font-size:30px;' class='centeredHeader unselectable'> Felicitaciones, entraste en el Top 3!!!</div><div style='font-size:24px;' class='centeredHeader unselectable'> Puntajes altos:</div><table class='tg' style='margin:0px auto'> ";
 	    	}else{
 	    		messages['gameover'] = "<div class='centeredHeader unselectable'> Juego terminado: " + score + " pts</div><br><div style='font-size:24px;' class='centeredHeader unselectable'> Puntajes altos:</div><table class='tg' style='margin:0px auto'> ";
@@ -184,12 +178,26 @@ function hideText() {
 }
 
 function gameOverDisplay() {
-	save(score);
-    $("#attributions").show();
-    var c = document.getElementById("canvas");
-    c.className = "blur";
-    showText('gameover');
-    showbottombar();
+	// save(score);
+	var formData = {score: score};
+	$.ajax(
+	{
+		url : "http://localhost:8083/api/v1/score",
+		type: "POST",
+		contentType:"application/json",
+		dataType: "json",
+		data: JSON.stringify(formData),
+		success: function(data){
+			console.log("lalal");
+		},
+		error: function(data){
+		    $("#attributions").show();
+		    var c = document.getElementById("canvas");
+		    c.className = "blur";
+		    showText('gameover');
+		    showbottombar();
+		}
+	});
 }
 
 function pause(o) {
