@@ -178,7 +178,6 @@ function hideText() {
 }
 
 function gameOverDisplay() {
-	// save(score);
 	var formData = {score: score};
 	$.ajax(
 	{
@@ -188,7 +187,6 @@ function gameOverDisplay() {
 		dataType: "json",
 		data: JSON.stringify(formData),
 		success: function(data){
-			console.log("lalal");
 		},
 		error: function(data){
 		    $("#attributions").show();
