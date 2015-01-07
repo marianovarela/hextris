@@ -112,6 +112,9 @@ function showText(text) {
     if (text == 'gameover') {
         var allZ = 1;
         var i;
+        $.get("http://localhost:8083/api/v1/score?sort=score,desc",function (scores){
+        		console.log(scores);
+        	});
     	if((highscores[2] != null && score >= highscores[2]) || highscores[2] == null){
     		messages['gameover'] += "<br><div style='font-size:30px;' class='centeredHeader unselectable'> Felicitaciones, entraste en el Top 3!!!</div>";
     	}
@@ -169,6 +172,7 @@ function hideText() {
 }
 
 function gameOverDisplay() {
+	save(score);
     $("#attributions").show();
     var c = document.getElementById("canvas");
     c.className = "blur";
