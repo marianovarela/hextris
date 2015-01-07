@@ -100,7 +100,7 @@ function showText(text) {
         'paused': "<div class='centeredHeader unselectable'>Pausa</div><br><div class='unselectable centeredSubHeader'>Pulse &uarr;(flecha arriba) para reanudar</div><div style='height:100px;line-height:100px;cursor:pointer;'></div>",
         'pausedAndroid': "<div class='centeredHeader unselectable'>Pausa</div><br><div class='unselectable centeredSubHeader'>Press <i class='fa fa-play'></i> to resume</div><div style='height:100px;line-height:100px;cursor:pointer;'></div><div class='unselectable centeredSubHeader' style='margin-top:-50px;'><a href = 'market://details?id=com.hextris.hextrisadfree' target='_blank'>Don't like ads? Want to support the developer? Tap for the ad-free version.</a></div>",
         'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>Presionar enter para reiniciar!</div>",
-        'gameover': "<div class='centeredHeader unselectable'> Juego terminado: " + score + " pts</div><br><div style='font-size:24px;' class='centeredHeader unselectable'> Puntajes altos:</div><table class='tg' style='margin:0px auto'> "
+        
     };
 
     if (text == 'paused') {
@@ -112,33 +112,45 @@ function showText(text) {
     if (text == 'gameover') {
         var allZ = 1;
         var i;
-        $.get("http://localhost:8083/api/v1/score?sort=score,desc",function (scores){
-        		console.log(scores);
-        	});
-    	if((highscores[2] != null && score >= highscores[2]) || highscores[2] == null){
-    		messages['gameover'] += "<br><div style='font-size:30px;' class='centeredHeader unselectable'> Felicitaciones, entraste en el Top 3!!!</div>";
-    	}
-        for (i = 0; i < 3; i++) {
-            if (highscores.length > i) {
-                messages['gameover'] += "<tr> <th class='tg-031e'>" + (i + 1) + ".</th> <th class='tg-031e'>" + highscores[i] + " pts</th> </tr>";
-            }
-        }
-
-        var restartText;
-        if (settings.platform == 'mobile') {
-            restartText = 'Tap anywhere to restart!';
-        } else {
-            restartText = 'Presionar enter para reiniciar!';
-        }
-
-        messages['gameover'] += "</table><br><div class='unselectable centeredSubHeader' id = 'tapToRestart'>" + restartText + "</div>";
-        if (allZ) {
-            for (i = 0; i < highscores.length; i++) {
-                if (highscores[i] !== 0) {
-                    allZ = 0;
-                }
-            }
-        }
+        var scores;
+        $.get("http://localhost:8083/api/v1/score?sort=score,desc",function (data){
+    		scores = data._embedded.score;
+    		console.log(scores[2]);
+    		console.log(score);
+    		console.log(scores[2].score);
+    		console.log(score >= scores[2].score);
+	    	if((scores[2] != null && score >= scores[2].score) || scores[2] == null){
+	    		console.log("entra aca");
+	    		// messages['gameover'] += "<br><div style='font-size:30px;' class='centeredHeader unselectable'> Felicitaciones, entraste en el Top 3!!!</div>";
+            	messages['gameover'] = "<div class='centeredHeader unselectable'> Juego terminado: " + score + " pts</div><br><div style='font-size:30px;' class='centeredHeader unselectable'> Felicitaciones, entraste en el Top 3!!!</div><div style='font-size:24px;' class='centeredHeader unselectable'> Puntajes altos:</div><table class='tg' style='margin:0px auto'> ";
+	    	}else{
+	    		messages['gameover'] = "<div class='centeredHeader unselectable'> Juego terminado: " + score + " pts</div><br><div style='font-size:24px;' class='centeredHeader unselectable'> Puntajes altos:</div><table class='tg' style='margin:0px auto'> ";
+	    	}
+	        for (i = 0; i < 3; i++) {
+	            if (scores.length > i) {
+	                messages['gameover'] += "<tr> <th class='tg-031e'>" + (i + 1) + ".</th> <th class='tg-031e'>" + scores[i].score + " pts</th> </tr>";
+	            }
+	        }
+	        var restartText;
+	        if (settings.platform == 'mobile') {
+	            restartText = 'Tap anywhere to restart!';
+	        } else {
+	            restartText = 'Presionar enter para reiniciar!';
+	        }
+	
+	        messages['gameover'] += "</table><br><div class='unselectable centeredSubHeader' id = 'tapToRestart'>" + restartText + "</div>";
+	        if (allZ) {
+	            for (i = 0; i < scores.length; i++) {
+	                if (scores[i] !== 0) {
+	                    allZ = 0;
+	                }
+	            }
+	        }
+	        $(".overlay").html(messages[text]);
+    		$(".overlay").fadeIn("1000", "swing");
+    	
+    	});
+        	
     }
     $(".overlay").html(messages[text]);
     $(".overlay").fadeIn("1000", "swing");
