@@ -3,6 +3,7 @@ function Strings () {
 }
 
 var $HEX = new Strings();
+$HEX.gameName = 'HEXTRIS';
 
 function scaleCanvas() {
     canvas.width = $(window).width();

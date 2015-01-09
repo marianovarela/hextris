@@ -113,7 +113,7 @@ function showText(text) {
         var allZ = 1;
         var i;
         var scores;
-        $.get("http://localhost:8083/api/v1/score?sort=score,desc",function (data){
+        $.get("http://localhost:8083/api/v1/score/search/findByGameOrderByScoreDesc?game=" + $HEX.gameName, function (data){
     		scores = data._embedded.score;
 	    	if((scores[2] != null && score >= scores[2].score) || scores[2] == null){
             	messages['gameover'] = "<div class='centeredHeader unselectable'> Juego terminado: " + score + " pts</div><br><div style='font-size:30px;' class='centeredHeader unselectable'> Felicitaciones, entraste en el Top 3!!!</div><div style='font-size:24px;' class='centeredHeader unselectable'> Puntajes altos:</div><table class='tg' style='margin:0px auto'> ";
@@ -178,10 +178,11 @@ function hideText() {
 }
 
 function gameOverDisplay() {
-	var formData = {score: score};
+	//TODO agregar name a formData
+	var formData = {score: score, game: $HEX.gameName};
 	$.ajax(
 	{
-		url : "http://localhost:8083/api/v1/score",
+		url : "http://localhost:8083/score",
 		type: "POST",
 		contentType:"application/json",
 		dataType: "json",
