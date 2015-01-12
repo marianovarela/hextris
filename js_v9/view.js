@@ -122,7 +122,7 @@ function showText(text) {
 	    	}
 	        for (i = 0; i < 3; i++) {
 	            if (scores.length > i) {
-	                messages['gameover'] += "<tr> <th class='tg-031e'>" + (i + 1) + ".</th> <th class='tg-031e'>" + scores[i].score + " pts</th> </tr>";
+	                messages['gameover'] += "<tr> <th class='tg-031e'>" + (i + 1) + ".</th> <th class='tg-031e'>" + scores[i].name + "  </th> <th class='tg-031e'>" + scores[i].score + " pts</th> </tr>";
 	            }
 	        }
 	        var restartText;
