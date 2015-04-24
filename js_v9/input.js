@@ -49,6 +49,11 @@ function addKeyListeners() {
         keys: "p",
         on_keydown: function(){pause();}
     });
+    
+    keypress.register_combo({
+        keys: "pause",
+        on_keydown: function(){pause();}
+    });
 
     keypress.register_combo({
         keys: "space",

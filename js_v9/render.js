@@ -73,10 +73,10 @@ function renderBeginningText() {
 	renderText((trueCanvas.width)/2 + 25 * settings.scale, (trueCanvas.height)/2 - 35 - 141 * settings.scale, 12, '#2c3e50', 'Derecha', '12px Roboto');
 	drawKey("right",(trueCanvas.width)/2 + 23 * settings.scale - 35/2 * settings.scale, (trueCanvas.height)/2 - 35 - 195 * settings.scale);
 	drawKey("left",(trueCanvas.width)/2 - 23 * settings.scale - 35/2 * settings.scale, (trueCanvas.height)/2 - 35 - 195 * settings.scale);
-	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 35 - 125 * settings.scale, 20, '#2c3e50', 'Gire el hexagono para hacer combos de 3(tres) o mas bloques tocandose!', '20px Roboto');
-	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 35 - 105 * settings.scale, 20, '#2c3e50', 'Haga combos en una fila para recibir un multiplicador de puntos!', '20px Roboto');
-	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 35 - 85 * settings.scale, 20, '#2c3e50', 'No dejes que los bloques se acumulen fuera del hexagono gris!', '20px Roboto');
-	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 35 - 65 * settings.scale, 20, '#2c3e50', (settings.platform == 'mobile' ? 'Tap the middle to toggle 2x speed!' : 'Sostenga presionada la flecha hacia abajo para aumentar la velodicad de 2x!'), '20px Roboto');
+	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 35 - 125 * settings.scale, 12, '#2c3e50', 'Gire el hexagono para hacer combos de 3(tres) o mas bloques tocandose!', '20px Roboto');
+	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 35 - 100 * settings.scale, 12, '#2c3e50', 'Haga combos en una fila para recibir un multiplicador de puntos!', '20px Roboto');
+	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 35 - 75 * settings.scale, 12, '#2c3e50', 'No dejes que los bloques se acumulen fuera del hexagono gris!', '20px Roboto');
+	renderText((trueCanvas.width)/2 + 1.5 * settings.scale, (trueCanvas.height)/2 - 35 - 50 * settings.scale, 12, '#2c3e50', (settings.platform == 'mobile' ? 'Tap the middle to toggle 2x speed!' : 'Sostenga presionada la flecha hacia abajo para aumentar la velodicad de 2x!'), '20px Roboto');
 }
 
 function drawKey(key, x, y) {
