@@ -1,9 +1,7 @@
-function Strings () {
-	this.ipScores = 'http://54.183.184.126/';   
-}
 
 var $HEX = new Strings();
 $HEX.gameName = 'HEXTRIS';
+$HEX.server = 'http://localhost:8083';
 
 function scaleCanvas() {
     canvas.width = $(window).width();
@@ -36,6 +34,10 @@ function scaleCanvas() {
 
         ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     }
+}
+
+function Strings () {
+	this.ipScores = 'http://54.183.184.126/';   
 }
 
 function toggleDevTools() {
