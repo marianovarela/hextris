@@ -1,7 +1,7 @@
 
 var $HEX = new Strings();
 $HEX.gameName = 'HEXTRIS';
-$HEX.server = 'http://localhost:8083';
+$HEX.server = 'http://tiendatac.minplan.gob.ar/games-score';
 
 function scaleCanvas() {
     canvas.width = $(window).width();
