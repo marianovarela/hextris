@@ -99,7 +99,7 @@ function showText(text) {
     var messages = {
         'paused': "<div class='centeredHeader unselectable'>Pausa</div><br><div class='unselectable centeredSubHeader'>Pulse &uarr;(flecha arriba) para reanudar</div><div style='height:100px;line-height:100px;cursor:pointer;'></div>",
         'pausedAndroid': "<div class='centeredHeader unselectable'>Pausa</div><br><div class='unselectable centeredSubHeader'>Press <i class='fa fa-play'></i> to resume</div><div style='height:100px;line-height:100px;cursor:pointer;'></div><div class='unselectable centeredSubHeader' style='margin-top:-50px;'><a href = 'market://details?id=com.hextris.hextrisadfree' target='_blank'>Don't like ads? Want to support the developer? Tap for the ad-free version.</a></div>",
-        'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>Presionar enter para reiniciar!</div>",
+        'start': "<div class='centeredHeader unselectable' style='line-height:80px;'>Presionar OK para reiniciar!</div>",
         
     };
 
@@ -129,7 +129,7 @@ function showText(text) {
 	        if (settings.platform == 'mobile') {
 	            restartText = 'Tap anywhere to restart!';
 	        } else {
-	            restartText = 'Presionar enter para reiniciar!';
+	            restartText = 'Presionar OK para reiniciar!';
 	        }
 	
 	        messages['gameover'] += "</table><br><div class='unselectable centeredSubHeader' id = 'tapToRestart'>" + restartText + "</div>";
